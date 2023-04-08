@@ -47,7 +47,8 @@ fi
 
 # PSQL backups
 if [ $PSTGRBACKUP = 1 ];then
-nice /usr/bin/pg_dumpall -U${PSTGRDBUSER} | gzip -c > ${TMPDIR}/db/${HOSTNAME}_psql_backup-${DATESTAMP}-${DAYOFWEEK}.psql.gz
+nice pg_basebackup -D ./pg_current -c fast -X none -U "$PSTGRDBUSER"
+nice tar -czvf ${TMPDIR}/db/${HOSTNAME}_psql_backup-${DATESTAMP}-${DAYOFWEEK}.psql.tar.gz ./pg_current && rm -rf ./pg_current
 fi
 
 # Drush
