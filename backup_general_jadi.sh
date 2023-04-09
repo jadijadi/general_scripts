@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# Key things to remember, no spaces in pathnames, and try to use fill paths (beginning with / )
+# Key things to remember, no spaces in pathnames, and try to use full paths (beginning with / )
 #
 # now fill in these few variables for me
 # change to use
